@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'screens/categories_screen.dart';
+
 void main() {
   runApp(Meals());
 }
@@ -8,14 +10,13 @@ class Meals extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Meals'),
-        ),
-        body: Column(
-          children: [],
-        ),
+      theme: ThemeData(
+        primarySwatch: Colors.pink,
+        accentColor: Colors.amber,
+        canvasColor: Color.fromRGBO(255, 254, 229, 1),
+        fontFamily: 'Raleway',
       ),
+      home: Catigories(),
     );
   }
 }
