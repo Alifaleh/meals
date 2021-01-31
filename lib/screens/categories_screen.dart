@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/category_grid.dart';
 import '../widgets/category_card.dart';
+
 import '../models/dummy_data.dart';
 
 class Categories extends StatelessWidget {
@@ -12,13 +13,8 @@ class Categories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Meals'),
-      ),
-      body: CatigoryGrid(
-        children: getCategoryCards(dommyCategories),
-      ),
+    return CatigoryGrid(
+      children: getCategoryCards(dommyCategories),
     );
   }
 }
