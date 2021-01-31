@@ -37,8 +37,6 @@ class Meals extends StatelessWidget {
         CategoryMeals.routeName: (ctx) => CategoryMeals(),
         RecipesScreen.routeName: (ctx) => RecipesScreen(),
       },
-      onGenerateRoute: (settings) {},
-      onUnknownRoute: (settings) {},
     );
   }
 }
