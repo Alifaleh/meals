@@ -4,8 +4,9 @@ import '../widgets/category_grid.dart';
 import '../widgets/category_card.dart';
 import '../models/dummy_data.dart';
 
-class Catigories extends StatelessWidget {
-  const Catigories({
+class Categories extends StatelessWidget {
+  static const String routeName = '/';
+  const Categories({
     Key key,
   }) : super(key: key);
 
