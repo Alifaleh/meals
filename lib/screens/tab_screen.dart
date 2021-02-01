@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/main_drawer.dart';
+
 import '../screens/categories_screen.dart';
 import '../screens/favorate_screen.dart';
 
@@ -26,14 +28,13 @@ class _TabBarScreenState extends State<TabBarScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(pages[_currentPageIndex]['title'])),
+      drawer: MainDrawer(),
       body: pages[_currentPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Theme.of(context).primaryColor,
         selectedItemColor: Theme.of(context).accentColor,
         unselectedItemColor: Colors.white,
         currentIndex: _currentPageIndex,
-        // selectedFontSize: ,
-        // unselectedFontSize: ,
         type: BottomNavigationBarType.shifting,
         onTap: _switchPages,
         items: [

@@ -14,6 +14,12 @@ class RecipesScreen extends StatelessWidget {
       return meal.id == passedData['id'];
     }).toList()[0];
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.star),
+        onPressed: () {
+          Navigator.of(context).pop(meal.id);
+        },
+      ),
       appBar: AppBar(
         title: Text(meal.title),
       ),
@@ -34,7 +40,7 @@ class RecipesScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             RecipesList(items: meal.steps),
-            SizedBox(height: 50),
+            SizedBox(height: 100),
           ],
         ),
       ),
