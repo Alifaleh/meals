@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../models/meal.dart';
 import '../models/dummy_data.dart';
 
 import '../screens/recipes_screen.dart';
 
+import '../providers/meals_provider.dart';
+
 class MealCard extends StatelessWidget {
   final String id;
   MealCard({@required this.id});
   @override
   Widget build(BuildContext context) {
+    final mealsProvider = Provider.of<MealsProvider>(context);
     Meal meal = dummyMeals.where((meal) {
       return meal.id == id;
     }).toList()[0];
@@ -20,6 +24,7 @@ class MealCard extends StatelessWidget {
           RecipesScreen.routeName,
           arguments: {'id': this.id},
         );
+        mealsProvider.setCurrentMeal(meal);
       },
       child: Card(
         elevation: 5,

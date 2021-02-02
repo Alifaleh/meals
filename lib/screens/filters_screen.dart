@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../widgets/main_drawer.dart';
+
+import '../providers/filters_provider.dart';
+
+// final bool isGlutenFree;
+// final bool isLactoseFree;
+// final bool isVegan;
+// final bool isVegetarian;
 
 class Filters extends StatefulWidget {
   static const routeName = '/filters';
@@ -9,12 +17,9 @@ class Filters extends StatefulWidget {
 }
 
 class _FiltersState extends State<Filters> {
-  bool _gluteenFree1 = false;
-  bool _gluteenFree2 = false;
-  bool _gluteenFree3 = false;
-  bool _gluteenFree4 = false;
   @override
   Widget build(BuildContext context) {
+    final filtersProvider = Provider.of<FiltersProvider>(context);
     return Scaffold(
       drawer: MainDrawer(),
       appBar: AppBar(
@@ -34,43 +39,35 @@ class _FiltersState extends State<Filters> {
               children: [
                 SwitchListTile(
                   onChanged: (val) {
-                    setState(() {
-                      _gluteenFree1 = val;
-                    });
+                    filtersProvider.setfilters(Filter.isGlutenFree, val, true);
                   },
-                  value: _gluteenFree1,
+                  value: filtersProvider.isSet(Filter.isGlutenFree),
                   subtitle: Text('only Gluteen free meals'),
                   title: Text('Gluteen free'),
                 ),
                 SwitchListTile(
                   onChanged: (val) {
-                    setState(() {
-                      _gluteenFree2 = val;
-                    });
+                    filtersProvider.setfilters(Filter.isLactoseFree, val, true);
                   },
-                  value: _gluteenFree2,
-                  subtitle: Text('only Gluteen free meals'),
-                  title: Text('Gluteen free'),
+                  value: filtersProvider.isSet(Filter.isLactoseFree),
+                  subtitle: Text('only Lactose Free meals'),
+                  title: Text('Lactose Free'),
                 ),
                 SwitchListTile(
                   onChanged: (val) {
-                    setState(() {
-                      _gluteenFree3 = val;
-                    });
+                    filtersProvider.setfilters(Filter.isVegan, val, true);
                   },
-                  value: _gluteenFree3,
-                  subtitle: Text('only Gluteen free meals'),
-                  title: Text('Gluteen free'),
+                  value: filtersProvider.isSet(Filter.isVegan),
+                  subtitle: Text('only Vegan meals'),
+                  title: Text('Vegan'),
                 ),
                 SwitchListTile(
                   onChanged: (val) {
-                    setState(() {
-                      _gluteenFree4 = val;
-                    });
+                    filtersProvider.setfilters(Filter.isVegetarian, val, true);
                   },
-                  value: _gluteenFree4,
-                  subtitle: Text('only Gluteen free meals'),
-                  title: Text('Gluteen free'),
+                  value: filtersProvider.isSet(Filter.isVegetarian),
+                  subtitle: Text('only Vegetarian meals'),
+                  title: Text('Vegetarian'),
                 ),
               ],
             ),
